@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   
@@ -11,8 +11,9 @@
   
   <link rel='stylesheet' type='text/css' href='./fonts/opensans.css'>
 	
-  <script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+  <script src="./jquery-2.1.4.min.js"></script>
   
+  <style id="hoverstyle"></style>
 </head>
 
 <body>
@@ -21,19 +22,16 @@
 
   <h1><a href="/">blizzz.ovh</a></h1>
   
-  <br/>
+  <br>
 
   <h1>Completed Games</h1>
 
-  <br/>
+  <br>
 </div>
 
-<style class="hover"></style>
-
-<script type="text/javascript">
+<script>
   var backlog = [
 	["Monster Hunter World: Iceborne", "Steam", "iceborne.jpg", ""],
-	["Stardew Valley", "Steam", "stardew_valley.jpg", ""],
 	["Alwa's Awakening", "PC", "alwa.jpg", ""], //GOG
 	["Pikmin 3 Deluxe", "Switch", "pikmin3.jpg", ""],
 	["Caladrius Blaze", "Steam", "caladrius.jpg", ""],
@@ -83,11 +81,13 @@
   //Stella Glow
   //Bloody Hell https://store.steampowered.com/app/2056220/Bloody_Hell/
   //Lunar Silver Star Complete
+  //Bulk Slash
   
   var year = 2024;
   
   var games = [
 	  [ // 2024
+		["Stardew Valley (Perfection)", "Steam", "stardew_valley.jpg", "star"],
 		["Kero Blaster (Zangyou Mode)", "Switch", "kero_blaster.jpg", ""],
 		["Mario Kart 8 Deluxe + Booster Pass", "Switch", "mario_kart_8.jpg", ""],
 		["Xenoblade 3: Future Redeemed", "Switch★", "xenoblade3_future.jpg", "star"],
@@ -136,7 +136,8 @@
 		["Elden Ring", "Steam★", "elden_ring.jpg", "holo"],
 		["Super Mario Odyssey", "Switch", "mario_odyssey.jpg", "star"],
 		["Tales of Symphonia", "Steam", "tales_symphonia.jpg", "holo"],
-		["Kingdom Rush Origins", "Steam", "kingdom_rush_origins.jpg", ""]
+		["Kingdom Rush Origins", "Steam", "kingdom_rush_origins.jpg", ""],
+		["ZeroRanger", "Steam★", "zeroranger.jpg", "holo"]
 	  ],
 	  [ // 2021
 		["Blaster Master Zero 3", "Switch", "blastermaster_z3.jpg", ""],
@@ -381,9 +382,13 @@
 	  */
   
   var page = $(".page");
+
+  page.append($("<div/>", {html: `${games.map((y, idx) => `<a href="#_${year - idx}">${year - idx}</a> (${y.length})`).join(', ')}, <a href="#_backlog">Backlog</a> (${backlog.length})`}));
+  page.append($("<br/>"));
+
   for (var j = 0; j < games.length; j++) {
-	var group = $("<div/>", {id: `_${year - j}`, class: "banners"});
-	page.append($("<h2/>", {text: year - j}))
+	var group = $("<div/>", {class: "banners"});
+	page.append($("<h2/>", {id: `_${year - j}`, text: year - j}))
 	  .append(group);
 	
 	  games[j].forEach ( game => {
@@ -396,8 +401,8 @@
   }
   
   page.append($("<br/>"));
-  var group = $("<div/>", {id: "_backlog", class: "banners"});
-  page.append($("<h2/>", {text: "Backlog"})).append(group);
+  var group = $("<div/>", {class: "banners"});
+  page.append($("<h2/>", {id: "_backlog", text: "Backlog"})).append(group);
   backlog.forEach ( game => {
 		var div = $("<div/>").append(
 		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+game[2], class: `banner ${game[3]}`})
@@ -407,8 +412,8 @@
   });
   
   show_hidden = function() {
-    $(".hidden").removeClass("hidden")
-  }
+    $(".hidden").removeClass("hidden");
+  };
   
   toggleSize = function() {
     var wsize = 326;
@@ -421,7 +426,7 @@
     }
     $(".banners div div").width(wsize).height(hsize);
     $("p").css("font-size", fontsize);
-  }
+  };
   $(window).on("resize", function() {
     toggleSize();
   });
@@ -448,7 +453,7 @@
       img.style.backgroundImage = 'url('+img.getAttribute("data-src")+')';
       img.removeAttribute("data-src");
     });
-  }
+  };
   
   const divs = document.querySelectorAll('div.banners');
     divs.forEach(div => {
@@ -458,7 +463,7 @@
 	// holo effect from https://codepen.io/simeydotme/pen/PrQKgo
 	var x;
 	var $holos = $(".holo");
-	var $style = $(".hover");
+	var $style = $("#hoverstyle");
 
 	$holos
 	  .on("mousemove touchmove", function(e) { 
@@ -486,15 +491,15 @@
 		var ty = tp * -.13;
 		var tx = lp * .09;
 		// css to apply for active card
-		var grad_pos = `background-position: ${lp}% ${tp+50}%;`
-		var sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`
-		var opc = `opacity: ${p_opc/100};`
+		var grad_pos = `background-position: ${lp}% ${tp+50}%`;
+		var sprk_pos = `background-position: ${px_spark}% ${py_spark}%`;
+		var opc = `opacity: ${p_opc/100}`;
 		var tf = `perspective(460px) rotateX(${ty}deg) rotateY(${tx}deg)`;
 		// need to use a <style> tag for psuedo elements
 		var style = `
 		  .holo:hover:before { ${grad_pos}; transition: none !important; }  /* gradient */
 		  .holo:hover:after { ${sprk_pos} ${opc} transition: none !important; }   /* sparkles */ 
-		`
+		`;
 		// set / apply css class and style
 		$holos.removeClass("active");
 		$holo.removeClass("animated");

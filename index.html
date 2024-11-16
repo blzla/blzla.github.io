@@ -1,2 +1,536 @@
-My old server expired, you can find me on Bluesky ( https://bsky.app/profile/blizzz.ovh ) until I set up something new.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  
+  <title>blizzz</title>
+  
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+	
+  <link rel="stylesheet" href="./games.css">
+  
+  <link rel='stylesheet' type='text/css' href='./fonts/opensans.css'>
+	
+  <script src="./jquery-2.1.4.min.js"></script>
+  
+  <style id="hoverstyle"></style>
+</head>
 
+<body>
+
+<div class="bsky">
+  <a href="https://bsky.app/profile/blizzz.ovh"><img src="./img/bsky.png" alt="bsky logo" class="bsky-logo"/>blizzz.ovh</a>
+</div>
+  
+<p class="intro">Welcome!</p>
+
+<div class="page">
+  <h1>Completed Games</h1>
+  <br>
+</div>
+
+<script>
+  var backlog = [
+	["Unicorn Overlord", "Switch", "unicorn_overlord.jpg", ""],
+	["Dragon's Crown Pro", "PS4", "dragons_crown.jpg", ""],
+	["Monster Hunter World: Iceborne", "Steam", "iceborne.jpg", ""],
+	["Alwa's Awakening", "PC", "alwa.jpg", ""], //GOG
+	["Pikmin 3 Deluxe", "Switch", "pikmin3.jpg", ""],
+	["Caladrius Blaze", "Steam", "caladrius.jpg", ""],
+	["Tales of Berseria", "Steam", "tales_of_berseria.jpg", ""],
+	["Ring Fit Adventure", "Switch", "ring_fit.jpg", ""],
+    ["Super Magbot", "Switch", "super_magbot.jpg", ""],
+    ["ZeroRanger", "Steam", "zeroranger.jpg", ""],
+    ["Crimzon Clover World EXplosion", "Steam", "crimzon_clover.jpg", ""],
+    //"Tactics Ogre: Knight of Lodis", "GBA", "", "",
+    //"Final Fantasy IV", "SNES", "final_fantasy_iv.jpg", "",
+    //"Wario Land"
+    ["BlazBlue Centralfiction", "Steam", "blazblue_4.jpg", ""],
+    ["Fire Emblem: The Binding Blade", "GBA", "fire_emblem_binding_blade.jpg", ""],
+    ["Shining Force II", "MD", "shining_force_ii.jpg", ""],
+    ["Sonic Mania Plus", "Switch", "sonic_mania_plus.jpg", ""],
+    ["Wargroove", "Switch", "wargroove.jpg", ""],
+    //"Uncharted 3: Drake's Deception", "PS4"
+    ["Katamari Damacy Reroll", "Switch", "katamari.jpg", ""],
+    ["Mario & Rabbids", "Switch", "mario_rabbids.jpg", ""],
+    //"Dragon Ball FighterZ", "Steam", "fighterz.jpg", "",
+    ["DOOM", "Steam", "doom.jpg", ""],
+    ["Tales of Vesperia", "PS4", "vesperia.jpg", ""],
+    ["Steamworld Dig 2", "Steam", "steamworld_dig2.jpg", ""],
+    ["Dragon Quest IV", "NDS", "dragon_quest_iv.jpg", ""],
+    ["Paper Mario", "N64", "paper_mario.jpg", ""],
+    ["Dragon Warrior VII", "PS1", "dragon_quest_vii.jpg", ""],
+    ["Darkest Dungeon", "Steam", "darkest_dungeon.jpg", ""],
+    ["Horizon Zero Dawn", "PS4", "horizon.jpg", ""],
+    ["Contra Spirits", "SFC", "contra_iii.jpg", ""],
+    ["Fire Emblem Echoes", "3DS", "fire_emblem_echoes.jpg", ""],
+    //"Star Fox 2", "SNES", "starfox2.jpg", "",
+    ["Energy Breaker", "SFC", "energy_breaker.jpg", ""],
+    ["Fire Emblem Fates: Revelation", "3DS", "fire_emblem_fates_revelation.jpg", ""],
+    ["Valkyria Chronicles", "Steam", "valkyria_chronicles.jpg", ""],
+    ["D.K. Country: Tropical Freeze", "Wii U", "dkc_freeze.jpg", ""],
+    ["Einhänder", "PSX", "einhander.jpg", ""],
+    ["Darksiders 2", "Steam", "darksiders2.jpg", ""],
+    ["Castlevania: Lords of Shadow", "Steam", "castlevania_los.jpg", ""]
+  ];
+  
+  //Advance Wars 2
+  //Radiant Silvergun
+  //Xenogears
+  //Advance Wars Dual Strike
+  //Ace Combat 3
+  //Fire Emblem: Genealogy of the Holy War
+  //Stella Glow
+  //Bloody Hell https://store.steampowered.com/app/2056220/Bloody_Hell/
+  //Lunar Silver Star Complete
+  //Bulk Slash
+  //Shiren the Wanderer 2 (N64)
+  
+  var year = 2024;
+  
+  var games = [
+	  [ // 2024
+		["Super Mario Party Jamboree", "Switch", "mario_party_jamboree.jpg", ""],
+		["Shiren  6: Serpentcoil (All Dungeons)", "Switch", "shiren6.jpg", "holo"],
+		["Legend of Zelda: Echoes of Wisdom", "Switch", "zelda_echoes_of_wisdom.jpg", "star"],
+		["Shiren the Wanderer", "SFC", "shiren1.jpg", ""],
+		["Elden Ring: Shadow of the Erdtree", "Steam", "elden_ring_shadow.jpg", "star"],
+		["Stardew Valley (Perfection)", "Steam", "stardew_valley.jpg", "star"],
+		["Kero Blaster (Zangyou Mode)", "Switch", "kero_blaster.jpg", ""],
+		["Mario Kart 8 Deluxe + Booster Pass", "Switch", "mario_kart_8.jpg", ""],
+		["Xenoblade 3: Future Redeemed", "Switch★", "xenoblade3_future.jpg", "star"],
+		["13 Sentinels", "Switch★", "13_sentinels.jpg", "holo"],
+		["Dottie Flowers", "SFC★", "dottie.jpg", ""],
+		["Guardian Force", "Saturn", "guardian_force.jpg", ""],
+		["Astalon: Tears of the Earth", "Steam", "astalon.jpg", ""],
+		["Sea of Stars", "Steam", "sea_of_stars.jpg", ""],
+	  ],
+	  [ // 2023
+		["Metroid MSU1", "SNES", "metroid_snes.jpg", ""],
+		["R-Type", "Arcade", "r_type.jpg", "star"],
+		["Lords of Thunder", "PCE CD-ROM²★1CC", "lords_of_thunder.jpg", ""],
+		["Super Bomberman Series", "SFC", "super_bomberman.jpg", ""], // 1, 3, 5, 2, 4
+		["Bomberman PCE Series", "PCE", "bomberman_94.png", ""], // Bomberman, '93, '94
+		["Super Mario Bros. Wonder", "Switch", "mario_wonder.jpg", "star"],
+		["Baldur's Gate 3", "Steam", "baldurs_gate_3.jpg", ""],
+		["F-Zero", "SNES", "fzero.jpg", ""],
+		["F-Zero 99", "Switch", "fzero_99.jpg", "star"],
+		["Fantastic Parodius", "SFC★1CC Level 5", "gokujou_parodius.jpg", ""],
+		["Legend of Zelda: Tears of the Kingdom", "Switch", "zelda_totk.jpg", "holo"],
+		["Super Hexagon", "Steam★", "hexagon.jpg", "star"],
+		["Xenoblade Chronicles 3", "Switch", "xenoblade3.jpg", "star"],
+		["Metroid Prime Remastered", "Switch", "metroid_prime1r.jpg", "star"],
+		["Kirby's Return to Dream Land Deluxe", "Switch★100%", "kirby_dreamland_switch.jpg", ""],
+		["Theatrhythm: Final Bar Line", "Switch", "theatrhythm3.jpg", "holo"],
+		["Fire Emblem Engage", "Switch", "fire_emblem_engage.jpg", "holo"],
+		["Hexcells Infinite", "Steam★", "hexcells_infinite.jpg", ""],
+		["Metal Gear Rising: Revengeance", "Steam", "metalgear.jpg", "star"],
+	    ["Xenoblade Chronicles Definitive Edition", "Switch", "xenoblade.jpg", "star"],
+	  ],
+	  [ // 2022
+		["NieR: Automata", "PS4", "nier_automata.jpg", "holo"],
+		["Ace Combat 7: Skies Unknown", "Steam", "ace7.jpg", "holo"],
+		["Kirby and the Forgotten Land", "Switch★100%", "kirby_forgotten_land.jpg", "star"],
+		["Lost Ruins", "Steam", "lost_ruins.jpg", "star"],
+		["Return to Monkey Island", "Steam", "monkey_island_5.jpg", ""],
+		["Pokémon SoulSilver (Mt Silver)", "NDS", "pkmn_soulsilver.jpg", "star"],
+		["Kirby's Return to Dream Land", "Wii", "kirby_adventure_wii.jpg", ""],
+		["Pocky & Rocky 2", "SNES", "pocky_rocky_2.jpg", ""],
+		["Pocky & Rocky Reshrined", "Switch★1CC Hard", "pocky_rocky_reshrined.jpg", "star"],
+		["Tunic", "PC", "tunic.jpg", "star"],
+		["Gorogoa", "PC", "gorogoa.jpg", ""],
+		["Saturn Bomberman", "Saturn", "saturn_bomberman.jpg", ""],
+		["Super Bomberman", "SNES", "super_bomberman.jpg", "holo"],
+		["Elden Ring", "Steam★", "elden_ring.jpg", "holo"],
+		["Super Mario Odyssey", "Switch", "mario_odyssey.jpg", "star"],
+		["Tales of Symphonia", "Steam", "tales_symphonia.jpg", "holo"],
+		["Kingdom Rush Origins", "Steam", "kingdom_rush_origins.jpg", ""],
+		["ZeroRanger", "Steam★", "zeroranger.jpg", "holo"]
+	  ],
+	  [ // 2021
+		["Blaster Master Zero 3", "Switch", "blastermaster_z3.jpg", ""],
+		["Super Mario 64 (16-Star)", "N64", "mario64.jpg", "star"],
+		["Paro Paro", "PC", "paroparo.jpg", ""],
+		["Metroid Dread", "Switch★", "metroid_dread.jpg", "holo"],
+		["Tales of Arise", "Steam★", "tales_arise.jpg", "star"],
+		["Flynn: Son of Crimson", "PC", "flynn.jpg", ""],
+		["Cursed Castilla (Hero Ending)", "Switch★1CC", "cursed_castilla.jpg", "holo"],
+		["Zelda: Breath of the Wild", "Switch", "zelda_botw.jpg", "holo"],
+		["FTL Advanced Edition", "Steam", "ftl.jpg", "holo"],
+		["Heroes III: Armageddon's Blade", "PC", "heroes3.jpg", "holo"],
+		["Final Fantasy VIII", "PS1", "final_fantasy_viii.jpg", "holo"],
+		["Pictopix", "Steam★", "pictopix_.jpg", ""],
+		["Monster Hunter Rise", "Switch", "monhun_rise.jpg", ""],
+		["Mario 3D World + Bowser's Fury", "Switch", "mario_3d_world.jpg", "star"],
+		["Tactics Ogre (CODA)", "Vita", "tactics_ogre_.jpg", "holo"],
+		["Cyber Shadow", "PC", "cyber_shadow.jpg", ""],
+		["Area 88", "SFC★1CC", "area88.jpg", ""],
+		["Super R-Type SA-1", "SFC★1CC", "super_rtype.jpg", "star"]
+	  ],
+	  [ // 2020
+		["Frostpunk (A New Home)", "PC", "frostpunk.jpg", ""],
+		["No One Can Stop Mr. Domino", "PS1", "mrdomino.jpg", ""],
+		["Brave Fencer Musashi", "PS1", "musashi.jpg", "star"],
+		["Spelunky 2 (Master)", "Steam★", "spelunky2.jpg", "star"],
+		["Kingdom Rush Vengeance", "Steam", "kingdom_rush_4.jpg", ""],
+		["Bloodstained: Curse of the Moon", "Switch", "curse_of_the_moon.jpg", "star"],
+		["Advance Wars", "GBA", "advance_wars.jpg", "star"],
+		["Super Mario Land", "GB", "mario_land.jpg", ""],
+		["Cadence of Hyrule", "Switch", "zeldodancer.jpg", ""],
+		["Touhou Luna Nights", "PC", "touhou_luna_nights.jpg", ""],
+		["The Dark Eye: Chains of Satinav", "Steam", "satinav.jpg", ""],
+		["Bravely Second - End Layer", "3DS", "bravely_second.jpg", "star"],
+		["Ganbare Goemon 3", "SFC", "goemon3.jpg", ""],
+		["Super Castlevania IV", "SFC★1CC", "castlevania_iv.jpg", "star"],
+		["Grandia", "PS1", "grandia_2.jpg", "holo"],
+		["Ikaruga", "Steam★1CC", "ikaruga.jpg", "holo"],
+		["Super R-Type", "SNES★1CC", "super_rtype.jpg", ""],
+		["Final Fantasy VII Remake", "PS4", "final_fantasy_vii_r.jpg", ""],
+		["WitchWay", "PC", "witchway.png", ""],
+		["Rising Dusk", "PC", "rising_dusk.jpg", ""],
+		["Picross 3D: Round 2", "3DS", "picross3d2.jpg", ""],
+		["Helltaker", "Steam", "helltaker.jpg", ""],
+		["Gato Roboto", "PC", "gato_roboto.jpg", ""],
+		["Voxelgram", "Steam", "voxelgram.jpg", ""],
+		["Animal Crossing: New Horizons", "Switch", "ac_nh.jpg", "holo"],
+		["A Plague Tale: Innocence", "PC", "plague_tale.webp", "star"],
+		["Blaster Master Zero", "3DS", "blastermaster_z.jpg", ""],
+		["Blaster Master Zero 2", "Switch", "blastermaster_z2.jpg", "star"],
+		["Aggelos", "Steam", "aggelos.jpg", "star"],
+		["Monster Hunter World: Iceborne", "PS4", "iceborne.jpg", "holo"],
+		//"Pictopix", "PC", "pictopix.jpg", ""]
+	  ],
+	  [ // 2019
+		["Snakebird Primer", "Steam★", "snakebird_primer.jpg", ""],
+		//"Cadence of Hyrule", "Switch", "zeldodancer.jpg", ""],
+		["Dark Souls: Remastered NG+", "Steam★", "darksouls_remaster.jpg", "holo"],
+		["Dark Souls 3 (Lord of Hollows & DLC)", "Steam", "darksoulsiii_hollow.jpg", "holo"],
+		["Demon's Crest", "SNES", "demons_crest.jpg", "star"],
+		["The End Is Nigh", "Steam", "the_end_is_nigh.jpg", ""],
+		["Radiant Historia: Perfect Chronology", "3DS", "radiant_historia_3ds.jpg", "star"],
+		["Super Mario Maker 2", "Switch", "smm2.jpg", "star"],
+		["Legend of Zelda: Link's Awakening", "Switch", "links_awakening.jpg", "holo"],
+		["Crash Team Racing", "PS4", "ctr.jpg", "star"],
+		["Final Fantasy Tactics", "PS1", "final_fantasy_tactics.jpg", "holo"],
+		["Odallus: The Dark Call", "Steam", "odallus.jpg", ""],
+		["Minit", "Steam", "minit.jpg", ""],
+		["A Hat In Time", "Steam", "hat_in_time.jpg", "star"],
+		["A Short Hike", "Steam★", "short_hike.jpg", "star"],
+		["Area 88", "SFC★1CC", "area88.jpg", ""],
+		["Divinity Original Sin 2", "Steam", "dos2.jpg", "holo"],
+		["Hollow Knight", "Steam", "hollow_knight.jpg", "holo"],
+		["Seiken Densetsu 3", "SFC", "seiken3.jpg", "star"],
+		["Mystical Ninja Starring Goemon", "N64", "goemon64.jpg", ""],
+		["Gradius III", "SFC★1CC", "gradius3.jpg", "star"],
+		["Rockman X3", "SFC", "rockmanx3.jpg", ""],
+		["Rockman X2", "SFC", "rockmanx2.jpg", ""],
+		["Gokujou Parodius", "SFC★1CC", "gokujou_parodius.jpg", ""],
+		["Ganbare Goemon", "SFC", "goemon.jpg", ""],
+		["Hameln no Violin Hiki", "SFC", "hameln.jpg", "star"],
+		["God of War", "PS4", "god_of_war4.jpg", "star"],
+		["Firepower 2000", "SNES★1CC", "firepower2000.jpg", ""],
+		["Baba Is You", "Steam★", "baba.jpg", "holo"],
+		["Dragon Quest XI", "PS4", "dragon_quest_xi.jpg", "holo"],
+		["Pepper's Puzzles", "Steam★", "peppers_puzzles.jpg", "holo"]
+	  ],
+	  [ // 2018
+		["Zelda: A Link Between Worlds", "3DS", "zelda_albw.jpg", "holo"],
+		["Zelda 3 Randomizer", "SFC", "alttp_randomizer.jpg", "holo"],
+		["Heroes of Might and Magic 3", "PC", "heroes3.jpg", "holo"],
+		["Assault Suits Valken", "SFC", "assault_suits_valken.jpg", "holo"],
+		["Final Fantasy VII", "PS1", "final_fantasy_vii.jpg", "holo"],
+		["La-Mulana 2", "Steam", "mulana2.jpg", "star"],
+		["Crash Bandicoot 2", "PS1", "crash2.jpg", "star"],
+		["Celeste", "Steam★", "celeste.jpg", "holo"],
+		["Vagrant Story", "PS1", "vagrant_story.jpg", "holo"],
+		["Cursed Castilla (Champion Ending)", "PS4", "cursed_castilla.jpg", "star"],
+		["Ridge Racer 64", "N64", "ridge_racer_64.jpg", "star"],
+		["Daytona USA: Circuit Edition", "Saturn", "daytona.jpg", "star"],
+		["Ridge Racer Type 4", "PS1", "ridge_racer_4.jpg", "star"],
+		["Castlevania: Symphony of the Night", "PS1", "castlevania_symphony.jpg", "holo"],
+		["Prime Mover", "Steam★", "prime_mover.jpg", "star"],
+		["Sin and Punishment", "N64", "sin_and_punishment.jpg", "holo"],
+		["Super Time Force Ultra", "Steam", "stfu.jpg", ""],
+		["Shadow of the Colossus", "PS4", "shadow_colossus.jpg", "star"],
+		["Muramasa Rebirth: Genroku Legends", "Vita", "muramasa_rebirth.jpg", "star"],
+		["Guacamelee!", "Steam", "guacamelee.jpg", ""],
+		["Ganbare Goemon 4", "SFC", "goemon4_.jpg", ""],
+		["Dragon Quest I", "SFC", "dragon_quest.jpg", ""],
+		["Dragon Quest V", "NDS", "dragon_quest_v.jpg", "holo"],
+		["Fire Emblem Fates: Conquest", "3DS", "fire_emblem_fates_conquest.jpg", "star"],
+		["Super Mario Bros. 2 (JP)", "FC", "smb2_lost_levels.jpg", ""],
+		["OneShot", "Steam★", "oneshot.jpg", "holo"],
+		["Monster Hunter World", "PS4", "monster_hunter_world.jpg", "star"]
+	  ], 
+	  [ // 2017
+		["Metroid Samus Returns", "3DS", "metroid_samus_returns.jpg", "star"],
+		["Monster Hunter Stories", "3DS", "monhun_stories.jpg", ""],
+		["Kirby's Dream Land 3", "SFC", "kirby_dreamland3.jpg", ""],
+		["Super Hydorah", "Steam★1CC", "super_hydorah.jpg", "holo"],
+		["Final Fantasy V", "SFC", "final_fantasy_v.jpg", "holo"],
+		["Super Castlevania IV", "SFC", "castlevania_iv.jpg", "star"],
+		["Tiny Barbarian DX", "Steam", "tiny_barbarian_dx.jpg", "star"],
+		["R-Type III: The Third Lightning", "SFC★1CC", "r-type_iii.jpg", "star"],
+		["Macross: Scrambled Valkyrie", "SFC★1CC", "macross_scrambled_valkyrie.jpg", "holo"],
+		["Jikkyou Oshaberi Parodius", "SFC", "jikkyou_oshaberi_parodius.jpg", "star"],
+		["Gokujou Parodius", "SFC", "gokujou_parodius.jpg", "star"],
+		["Parodius Da!", "SFC", "parodius.jpg", "star"],
+		["Dragon Quest III", "SFC", "dragon_quest_iii.jpg", "holo"],
+		["Samorost 3", "Steam★", "samorost3.jpg", ""],
+		["Sonic Mania", "Steam", "sonic_mania.jpg", "star"],
+		["Baba Is You (Jam Version)", "PC", "baba.png", ""],
+		["DoReMi Fantasy", "SFC", "doremi.jpg", ""],
+		["Monster World IV", "MD", "monster_world_iv.jpg", ""],
+		["Odin Sphere Leifthrasir", "Vita/PS3", "odin_sphere.jpg", "holo"],
+		["Ganbare Goemon 2", "SFC", "goemon2.jpg", "star"],
+		["Layer Section", "Saturn", "layersection.jpg", "holo"],
+		["Shenzhen I/O Bonus Campaign", "Steam★", "shenzhen.jpg", "holo"],
+		["Everspace", "Steam", "everspace.jpg", "star"],
+		["Samorost 2", "Steam", "samorost2.jpg", ""],
+		["Volgarr the Viking (Normal Route)", "Steam", "volgarr.jpg", "star"],
+		["Witcher 3 Blood and Wine", "Steam", "witcher_3_blood.jpg", "holo"],
+		["Witcher 3 Hearts of Stone", "Steam", "witcher_3_hearts.jpg", "star"],
+		["Zelda: Breath of the Wild", "Wii U", "zelda_botw.jpg", "holo"],
+		["Crypt of the Necrodancer", "Steam", "necrodancer.jpg", "holo"],
+		["Lemonhunter", "PC", "lemonhunter.jpg", "star"],
+		["Lala The Magical", "NES", "lala.jpg", ""]
+	  ],
+	  [ // 2016
+		["Shenzhen I/O", "Steam", "shenzhen.jpg", "holo"],
+		["R-Type Delta", "PSX", "r_type_delta.jpg", "star"],
+		["The Vanishing of Ethan Carter", "Steam★", "ethan_carter.jpg", "star"],
+		["Monster Hunter Generations", "3DS", "mhx.jpg", "holo"],
+		["Kingdom Rush Frontiers", "Steam", "kingdom_rush_frontiers.jpg", ""],
+		["Kirby Planet Robobot", "3DS", "kirby_robobot.jpg", "holo"],
+		["Momodora IV", "Steam", "momodora4.jpg", "star"],
+		["3D Out Run", "3DS", "outrun_3ds.jpg", ""],
+		["Fire Emblem Fates: Birthright", "3DS", "fire_emblem_fates_birthright.jpg", ""],
+		["Dark Souls III", "Steam", "darksoulsiii.jpg", "holo"],
+		["SquareCells", "Steam★", "squarecells.jpg", ""],
+		["Hyper Light Drifter", "Steam", "hyper_light_drifter.jpg", "star"],
+		["Fire Emblem: Awakening", "3DS", "fire_emblem_awakening.jpg", "holo"],
+		["Super Mario Bros. 3", "SNES", "smb3.jpg", "holo"],
+		["Super Mario Bros. 2", "GBA", "smb2.jpg", ""],
+		["Super Mario Bros.", "Famicom", "smb1.jpg", ""]
+	  ],
+	  [ // 2015
+		["Memoria", "Steam", "memoria.jpg", "holo"],
+		["Ducktales", "NES", "ducktales.jpg", ""],
+		["Catherine", "PS3", "catherine.jpg", "holo"],
+		["Chrono Trigger", "SNES", "chrono_trigger.jpg", "holo"],
+		["Dracula X: Chi no Rondo", "PC Engine CD", "dracula_x_chi_no_rondo.jpg", "holo"],
+		["The Witcher 3 - Wild Hunt", "PC", "witcher_3.jpg", "holo"],
+		["Gargoyle's Quest", "GB", "gargoyles_quest.jpg", ""],
+		["Super Mario Land 2", "GB", "mario_land_2.jpg", ""],
+		["Shovel Knight", "Steam", "shovel_knight.jpg", "star"],
+		["Environmental Station Alpha", "Steam", "environmental_station_alpha.jpg", "holo"],
+		["Monster Hunter 4 Ultimate", "3DS", "monster_hunter_4_ultimate.jpg", "holo"],
+		["Hexcells Infinite", "Steam★", "hexcells_infinite.jpg", "star"],
+		["Final Fantasy IX", "PSX", "final_fantasy_ix.jpg", "holo"],
+		["The Legend of Zelda: Majora's Mask", "N64", "majoras_mask.jpg", "holo"]
+	  ]
+  ];
+	  /* // 2014
+		Mario Kart 8
+		DiRT 3 (finished?)
+		Dark Souls 2
+		Finding Teddy
+		Shantae: Risky's Revenge
+		Momodora III
+		(Momodora II ?)
+		Metro: Last Light Redux
+		Metro 2033 Redux
+		Kingdom Rush
+		Dark Souls: Prepare to Die Edition
+		Escape Goat 2
+		Spelunky
+		Borderlands: The Pre-Sequel
+		
+		// 2013
+		Ragnarok Online 2
+		Desktop Dungeons
+		Revenge of the Titans
+		La-Mulana
+		Papers, Please
+		Ultratron
+		Anodyne
+		Mini Motor Racing EVO
+		Superbrothers: Sword & Sworcery EP
+		Sine Mora
+		Bleed
+		Noitu Love 2 Devolution (2012?)
+		Escape Goat
+		Chaos on Deponia
+		The Legend of Zelda: A Link Between Worlds
+		Rayman Legends
+		
+		// 2012
+		Borderlands 2
+		Botanicula
+		Blacklight: Retribution
+		FTL (2013?)
+		Darksiders
+		Deponia
+		New Super Mario Bros U (2013?)
+		
+		// 2011
+		The Witcher 2: Assassins of Kings Enhanced Edition
+		Super Meat Boy
+		Magicka
+		Cave Story
+		Portal 2
+		Portal (?)
+		Jamestown
+		Renegade Ops
+		
+		// 2010
+		Braid
+		VVVVVV (2011?)
+		
+	  */
+  
+  var page = $(".page");
+
+  page.append($("<div/>", {html: `${games.map((y, idx) => `<a href="#_${year - idx}">${year - idx}</a> (${y.length})`).join(', ')}, <a href="#_backlog">Backlog</a> (${backlog.length})`}));
+  page.append($("<br/>"));
+
+  for (var j = 0; j < games.length; j++) {
+	var group = $("<div/>", {class: "banners"});
+	page.append($("<h2/>", {id: `_${year - j}`, text: year - j}))
+	  .append(group);
+	
+	  games[j].forEach ( game => {
+		var div = $("<div/>").append(
+		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+game[2], class: `banner ${game[3]}`})
+		).append(
+		  $("<p/>", {html: game[0]}).append($("<small/>", {text: " ("+game[1]+")"}))
+		).appendTo(group);
+	  });
+	if (j == 1) {
+	  var upbutton = $("<div/>", {class: "upbutton"}).append($("<a/>", {href: ""}).append($("<img>", {src: "./img/arrow_up.png"})));
+	  page.append(upbutton);
+	}
+  }
+  
+  page.append($("<br/>"));
+  var group = $("<div/>", {class: "banners"});
+  page.append($("<h2/>", {id: "_backlog", text: "Backlog"})).append(group);
+  backlog.forEach ( game => {
+		var div = $("<div/>").append(
+		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+game[2], class: `banner ${game[3]}`})
+		).append(
+		  $("<p/>", {html: game[0]}).append($("<small/>", {text: " ("+game[1]+")"}))
+		).appendTo(group);
+  });
+  
+  show_hidden = function() {
+    $(".hidden").removeClass("hidden");
+  };
+  
+  toggleSize = function() {
+    var wsize = 326;
+    var hsize = 152;
+    var fontsize = "16px";
+    if (window.innerWidth > 2100) {
+      wsize = 460;
+      hsize = 215;
+      fontsize = "18px";
+    }
+    $(".banners div div").width(wsize).height(hsize);
+    $("p").css("font-size", fontsize);
+  };
+  $(window).on("resize", function() {
+    toggleSize();
+  });
+  toggleSize();
+  
+  observer = new IntersectionObserver(function(entries, self) {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        loadImgs(entry.target);
+        const divs = entry.target.parentNode.querySelectorAll('div.banners');
+        const ind = Array.prototype.indexOf.call(divs, entry.target);
+        if (ind < divs.length-1) {
+          loadImgs(divs[ind+1]);
+        }
+        self.unobserve(entry.target);
+      }
+    });
+  });
+  
+  loadImgs = function(div) {
+    const imgs = div.querySelectorAll('[data-src]');
+    imgs.forEach(img => {
+      //img.src = img.getAttribute("data-src");
+      img.style.backgroundImage = 'url('+img.getAttribute("data-src")+')';
+      img.removeAttribute("data-src");
+    });
+  };
+  
+  const divs = document.querySelectorAll('div.banners');
+    divs.forEach(div => {
+      observer.observe(div);
+  });
+ 
+	// holo effect from https://codepen.io/simeydotme/pen/PrQKgo
+	var x;
+	var $holos = $(".holo");
+	var $style = $("#hoverstyle");
+
+	$holos
+	  .on("mousemove touchmove", function(e) { 
+		// normalise touch/mouse
+		var pos = [e.offsetX,e.offsetY];
+		e.preventDefault();
+		if ( e.type === "touchmove" ) {
+		  pos = [ e.touches[0].clientX, e.touches[0].clientY ];
+		}
+		var $holo = $(this);
+		// math for mouse position
+		var l = pos[0];
+		var t = pos[1];
+		var h = $holo.height();
+		var w = $holo.width();
+		var px = Math.floor(100 / w * l);
+		var py = Math.floor(100 / h * t);
+		var pa = (50-px)+(50-py);
+		// math for gradient / background positions
+		var lp = (px - 50)/1;
+		var tp = (py - 50)/1;
+		var px_spark = (50+(px - 50)/75);
+		var py_spark = (50+(py - 50)/75);
+		var p_opc = 30+(70 - px*0.8);
+		var ty = tp * -.13;
+		var tx = lp * .09;
+		// css to apply for active card
+		var grad_pos = `background-position: ${lp}% ${tp+50}%`;
+		var sprk_pos = `background-position: ${px_spark}% ${py_spark}%`;
+		var opc = `opacity: ${p_opc/100}`;
+		var tf = `perspective(460px) rotateX(${ty}deg) rotateY(${tx}deg)`;
+		// need to use a <style> tag for psuedo elements
+		var style = `
+		  .holo:hover:before { ${grad_pos}; transition: none !important; }  /* gradient */
+		  .holo:hover:after { ${sprk_pos} ${opc} transition: none !important; }   /* sparkles */ 
+		`;
+		// set / apply css class and style
+		$holos.removeClass("active");
+		$holo.removeClass("animated");
+		this.style.transition = '' ;
+		this.style.transform = tf ;
+		$style.html(style);
+		if ( e.type === "touchmove" ) {
+		  return false; 
+		}
+		clearTimeout(x);
+	  }).on("mouseout touchend touchcancel", function() {
+		// remove css, apply custom animation on end
+		var $holo = $(this);
+		$style.html("");
+		this.style.transform = "" ;
+		this.style.transition = 'transform 2s 0.2s' ;
+	  });
+</script>
+
+</body>
+
+</html>

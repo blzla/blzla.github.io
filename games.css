@@ -138,6 +138,7 @@ h1 a, h1 a:active {
 
 .page {
   padding: 0 24px;
+  text-align: center;
 }
 
 .banners {
@@ -159,6 +160,21 @@ h1 a, h1 a:active {
 
 .banners p {
   margin-top: 0.2em;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 1em 0.5em 1em 0.5em;
+  background: rgba(0,0,0,0.3);
+}
+
+.banners p.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+}
+.banners p a {
+  color: cyan;
 }
 
 .banners small {
@@ -324,7 +340,6 @@ body {
   color: white;
   background-color: #333844;
   font-family: "Heebo", sans-serif;
-  text-align: center;
 }
 h1 {
   display: block;
@@ -339,25 +354,37 @@ p {
 }
 
 
-p {
-  font-weight: 400;
-  font-size: 18px;
-  padding: 1em 0.5em 1em 0.5em;
-  background: rgba(0,0,0,0.3);
-  margin-top: 0;
-}
-
-p.bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 0;
-}
-p a {
-  color: cyan;
-}
-
 html,body,main {
   min-height: 100%;
+}
+
+.bsky {
+  display: block;
+  margin: 24px 0 0 28px;
+  text-align: left;
+  font-size: 2em;
+}
+
+.bsky a {
+  color: white;
+}
+
+.bsky a:hover {
+  color: #cfdae5;
+}
+
+.bsky-logo {
+  margin-right: 5px;
+}
+
+.intro {
+  margin: 42px 0 18px 42px;
+
+}
+
+.upbutton {
+  position: sticky;
+  top: calc(100vh - 28px);
+  float: left;
+  margin-left: -20px;
 }

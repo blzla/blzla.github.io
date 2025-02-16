@@ -395,17 +395,8 @@
 		VVVVVV (2011?)
 		
 	  */
-  get_random = function() {
-	var rn = Math.floor(Math.random() * backlog.length);
-	$("#backlog > div").addClass("hidden");
-	$(`#backlog > div:nth-child(${rn+1})`).removeClass("hidden");
-	$("#show_all_button").removeClass("hidden");
-  }
-  show_all = function() {
-	$("#show_all_button").addClass("hidden");
-	$("#backlog > div").removeClass("hidden");
-  }
-  
+
+
   var page = $(".page");
 
   page.append($("<div/>", {html: `${games.map((y, idx) => `<a href="#_${year - idx}">${year - idx}</a> (${y.length})`).join(', ')}, <a href="#_backlog">Backlog</a> (${backlog.length})`}));
@@ -555,6 +546,21 @@
 		this.style.transform = "" ;
 		this.style.transition = 'transform 2s 0.2s' ;
 	  });
+
+  function get_random() {
+	var rn = Math.floor(Math.random() * backlog.length);
+	$("#backlog").attr('style',`padding-bottom: ${$(window).height()/2}px`);
+	$("#backlog > div").addClass("hidden");
+	$(`#backlog > div:nth-child(${rn+1})`).removeClass("hidden");
+	$("#show_all_button").removeClass("hidden");
+  }
+  function show_all() {
+	$("#show_all_button").addClass("hidden");
+	$("#backlog > div").removeClass("hidden");
+	$("#backlog").attr('style','');
+  }
+  
+
 </script>
 
 </body>

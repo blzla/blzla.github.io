@@ -31,8 +31,17 @@
 
 <script>
   var backlog = [
+    ["Bloody Hell", "Steam", "bloody_hell.jpg", ""],
+    ["Stella Glow", "3DS", "stella_glow.jpg", ""],
+	["Advance Wars Dual Strike", "NDS", "advance_wars_ds.jpg", ""],
+    ["Advance Wars 2", "GBA", "advance_wars2.jpg", ""],
+    ["Lunar Silver Star Complete", "PS1", "lunar_silver_star_story.jpg", ""],
+    ["Ace Combat 3", "PS1", "ace3.jpg", ""],
+    ["Puyo Puyo!! 20th Anniversary", "3DS", "puyo_20th.jpg", ""],
+    ["Puyo Puyo Sun", "N64", "puyo_sun.jpg", ""],
 	["Mary Skelter 2", "Switch", "mary_skelter2.jpg", ""],
 	["Divinity: Original Sin", "Steam", "divinity_os.jpg", ""],
+	["Shiren the Wanderer 2", "N64", "shiren2.jpg", ""],
     ["Final Fantasy XIII-2", "PS3", "finalfantasy_xiii2.jpg", ""],
 	["Unicorn Overlord", "Switch", "unicorn_overlord.jpg", ""],
 	["Monster Hunter World: Iceborne", "Steam", "iceborne.jpg", ""],
@@ -42,11 +51,9 @@
 	["Tales of Berseria", "Steam", "tales_of_berseria.jpg", ""],
 	["Ring Fit Adventure", "Switch", "ring_fit.jpg", ""],
     ["Super Magbot", "Switch", "super_magbot.jpg", ""],
-    ["ZeroRanger", "Steam", "zeroranger.jpg", ""],
     ["Crimzon Clover World EXplosion", "Steam", "crimzon_clover.jpg", ""],
     //"Tactics Ogre: Knight of Lodis", "GBA", "", "",
-    //"Final Fantasy IV", "SNES", "final_fantasy_iv.jpg", "",
-    //"Wario Land"
+    ["Final Fantasy IV", "SNES", "final_fantasy_iv.jpg", ""],
     ["BlazBlue Centralfiction", "Steam", "blazblue_4.jpg", ""],
     ["Fire Emblem: The Binding Blade", "GBA", "fire_emblem_binding_blade.jpg", ""],
     ["Shining Force II", "MD", "shining_force_ii.jpg", ""],
@@ -55,7 +62,6 @@
     //"Uncharted 3: Drake's Deception", "PS4"
     ["Katamari Damacy Reroll", "Switch", "katamari.jpg", ""],
     ["Mario & Rabbids", "Switch", "mario_rabbids.jpg", ""],
-    //"Dragon Ball FighterZ", "Steam", "fighterz.jpg", "",
     ["DOOM", "Steam", "doom.jpg", ""],
     ["Tales of Vesperia", "PS4", "vesperia.jpg", ""],
     ["Steamworld Dig 2", "Steam", "steamworld_dig2.jpg", ""],
@@ -66,9 +72,9 @@
     ["Horizon Zero Dawn", "PS4", "horizon.jpg", ""],
     ["Contra Spirits", "SFC", "contra_iii.jpg", ""],
     ["Fire Emblem Echoes", "3DS", "fire_emblem_echoes.jpg", ""],
-    //"Star Fox 2", "SNES", "starfox2.jpg", "",
-    ["Energy Breaker", "SFC", "energy_breaker.jpg", ""],
-    ["Fire Emblem Fates: Revelation", "3DS", "fire_emblem_fates_revelation.jpg", ""],
+    ["Star Fox 2", "SNES", "starfox2.jpg", ""],
+    ["Energy Breaker", "SFC", "energy_breaker_v2.jpg", ""],
+    //["Fire Emblem Fates: Revelation", "3DS", "fire_emblem_fates_revelation.jpg", ""],
     ["Valkyria Chronicles", "Steam", "valkyria_chronicles.jpg", ""],
     ["D.K. Country: Tropical Freeze", "Wii U", "dkc_freeze.jpg", ""],
     ["Einhänder", "PSX", "einhander.jpg", ""],
@@ -76,18 +82,10 @@
     ["Castlevania: Lords of Shadow", "Steam", "castlevania_los.jpg", ""]
   ];
   
-  //Advance Wars 2
+  // Maybe list:
   //Radiant Silvergun
-  //Xenogears
-  //Advance Wars Dual Strike
-  //Ace Combat 3
   //Fire Emblem: Genealogy of the Holy War
-  //Stella Glow
-  //Bloody Hell https://store.steampowered.com/app/2056220/Bloody_Hell/
-  //Lunar Silver Star Complete
   //Bulk Slash
-  //Shiren the Wanderer 2 (N64)
-  //Puyo Puyo Sun
   
   var year = 2025;
   
@@ -410,7 +408,7 @@
 	
 	  games[j].forEach ( game => {
 		var div = $("<div/>").append(
-		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+game[2], class: `banner ${game[3]}`})
+		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+(game[2] ? game[2] : "missing.png"), class: `banner ${game[3]}`})
 		).append(
 		  $("<p/>", {html: game[0]}).append($("<small/>", {text: " ("+game[1]+")"}))
 		).appendTo(group);
@@ -426,7 +424,7 @@
   page.append($("<h2/>", {id: "_backlog", text: "Backlog"})).append(group);
   backlog.forEach ( game => {
 		var div = $("<div/>").append(
-		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+game[2], class: `banner ${game[3]}`})
+		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+(game[2] ? game[2] : "missing.png"), class: `banner ${game[3]}`})
 		).append(
 		  $("<p/>", {html: game[0]}).append($("<small/>", {text: " ("+game[1]+")"}))
 		).appendTo(group);

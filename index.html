@@ -395,6 +395,16 @@
 		VVVVVV (2011?)
 		
 	  */
+  get_random = function() {
+	var rn = Math.floor(Math.random() * backlog.length);
+	$("#backlog > div").addClass("hidden");
+	$(`#backlog > div:nth-child(${rn+1})`).removeClass("hidden");
+	$("#show_all_button").removeClass("hidden");
+  }
+  show_all = function() {
+	$("#show_all_button").addClass("hidden");
+	$("#backlog > div").removeClass("hidden");
+  }
   
   var page = $(".page");
 
@@ -420,8 +430,17 @@
   }
   
   page.append($("<br/>"));
-  var group = $("<div/>", {class: "banners"});
-  page.append($("<h2/>", {id: "_backlog", text: "Backlog"})).append(group);
+  var group = $("<div/>", {class: "banners", id: "backlog"});
+  page.append($("<h2/>", {id: "_backlog", text: "Backlog"}));
+  
+  var random_button = $("<button/>", {text: "Pick Random!"});
+  random_button.click(get_random);
+  var unhide_button = $("<button/>", {text: "Show all!", class: "hidden", id: "show_all_button", style: "margin-left: 8px;"});
+  unhide_button.click(show_all);
+  page.append(random_button);
+  page.append(unhide_button).append($("<br/>")).append($("<br/>"));
+  page.append(group);
+
   backlog.forEach ( game => {
 		var div = $("<div/>").append(
 		  $("<div/>", {style: "background: ./img/games/blank.png; ", "data-src": "./img/games/"+(game[2] ? game[2] : "missing.png"), class: `banner ${game[3]}`})

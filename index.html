@@ -564,10 +564,11 @@
 	  });
 
   function get_random() {
-	var rn = Math.floor(Math.random() * backlog.length);
+    var candidates = $("#backlog > .highlight").length > 0 ? $("#backlog > .highlight") : $("#backlog > div");
+	var rn = Math.floor(Math.random() * candidates.length);
 	$("#backlog").attr('style',`padding-bottom: ${$(window).height()/2}px`);
 	$("#backlog > div").addClass("hidden");
-	$(`#backlog > div:nth-child(${rn+1})`).removeClass("hidden");
+	$(candidates[rn]).removeClass("hidden");
 	$("#show_all_button").removeClass("hidden");
   }
   function show_all() {
@@ -575,6 +576,15 @@
 	$("#backlog > div").removeClass("hidden");
 	$("#backlog").attr('style','');
   }
+  $("#backlog > div").click(function(){
+    $(this).toggleClass("highlight");
+    $(this).removeClass("grayscale");
+    if ($("#backlog > .highlight").length > 0) {
+      $("#backlog > div:not(.highlight)").addClass("grayscale");
+    } else {
+      $("#backlog > div:not(.highlight)").removeClass("grayscale");
+    }
+  }); 
   
 
 </script>

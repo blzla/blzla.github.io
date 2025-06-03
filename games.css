@@ -193,11 +193,17 @@ h1 a, h1 a:active {
 .grayscale {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
+  color: #666;
 }
 
 .desaturate {
   -webkit-filter: saturate(0.42);
   filter: saturate(0.42);
+}
+
+.highlight {
+  /*border: 1px solid green;
+  margin: -1px 11px 15px 11px !important;*/
 }
 
 small {

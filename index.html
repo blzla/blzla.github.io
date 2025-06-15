@@ -31,6 +31,7 @@
 
 <script>
   var backlog = [
+	//["Void Stranger EX"],
 	["Throes of the Watchmaker", "Steam", "sea_of_stars_dlc.jpg", ""],
 	["ZeroRanger", "Steam", "zeroranger.jpg", ""],
 	["WipEout 3 Special Edition", "PS1", "wipeout3se.jpg", ""],
@@ -45,6 +46,7 @@
     ["Puyo Puyo!! 20th Anniversary", "3DS", "puyo_20th.jpg", ""],
     ["Puyo Puyo Sun", "N64", "puyo_sun.jpg", ""],
 	["Mary Skelter 2", "Switch", "mary_skelter2.jpg", ""],
+	["Mary Skelter: Nightmares", "Switch", "mary_skelter.jpg", ""],
 	["Divinity: Original Sin", "Steam", "divinity_os.jpg", ""],
 	["Shiren the Wanderer 2", "N64", "shiren2.jpg", ""],
     ["Final Fantasy XIII-2", "PS3", "finalfantasy_xiii2.jpg", ""],
@@ -62,7 +64,7 @@
     ["Fire Emblem: The Binding Blade", "GBA", "fire_emblem_binding_blade.jpg", ""],
     ["Shining Force II", "MD", "shining_force_ii.jpg", ""],
     ["Sonic Mania Plus", "Switch", "sonic_mania_plus.jpg", ""],
-    ["Wargroove", "Switch", "wargroove.jpg", ""],
+    ["Wargroove", "Steam", "wargroove.jpg", ""],
     //"Uncharted 3: Drake's Deception", "PS4"
     ["Katamari Damacy Reroll", "Switch", "katamari.jpg", ""],
     ["Mario & Rabbids", "Switch", "mario_rabbids.jpg", ""],
@@ -98,6 +100,7 @@
   
   var games = [
 	  [ // 2025
+	  	["Warhammer 40,000: Boltgun", "Steam", "boltgun.jpg", "star"],
 		["We Love Katamari Reroll+", "Steam★", "we_love_katamari.jpg", ""],
 		["Alwa's Awakening", "PC", "alwa.jpg", ""],
 	  	["Outer Wilds & Echoes of the Eye", "Steam", "outer_wilds.jpg", "star"],
@@ -576,9 +579,9 @@
 	$("#backlog > div").removeClass("hidden");
 	$("#backlog").attr('style','');
   }
-  $("#backlog > div").click(function(){
-    $(this).toggleClass("highlight");
-    $(this).removeClass("grayscale");
+  $("#backlog > div > div").click(function(){
+    $(this).parent().toggleClass("highlight");
+    $(this).parent().removeClass("grayscale");
     if ($("#backlog > .highlight").length > 0) {
       $("#backlog > div:not(.highlight)").addClass("grayscale");
     } else {
